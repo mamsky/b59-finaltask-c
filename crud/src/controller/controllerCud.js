@@ -12,7 +12,7 @@ const authRegister = async (req, res) => {
     return res.redirect("/register");
   }
 
-  const isUsername = await User.findOne({ where: { username } });
+  const isUsername = await User.findOne({ where: { email: email } });
   if (isUsername) {
     req.flash(
       "error",
