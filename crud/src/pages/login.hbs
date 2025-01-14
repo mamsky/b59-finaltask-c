@@ -1,0 +1,28 @@
+{{#>layout title = 'login' user=user}}
+    <div class="w-full h-screen bg-gray-900 text-white">
+        <div class="h-4/5 flex justify-center items-center">      
+            <div class="container w-full md:w-1/2 lg:md-1/3 xl:w-1/5 w-1/5 border rounded-md bg-white/30 backdrop-blur-sm">
+                    <form action="/authLogin" method="POST" class="p-2">
+                        <h1 class="text-4xl py-4 text-center font-bold">Login Form</h1>
+                        <div class="w-full my-4">
+                            <label for="email" class="font-semibold text-xl">Email</label>
+                            <div class="w-full">
+                                <input type="email" name="email" id="email" placeholder="email" class="text-black w-full p-2 rounded-md bg-white/50 focus:bg-white">
+                            </div>
+                        </div>
+                        <div class="w-full my-4">
+                            <label for="password" class="font-semibold text-xl">Password</label>
+                            <div class="w-full">
+                                <input type="password" name="password" id="password" placeholder="password" class="text-black w-full p-2 rounded-md bg-white/50 focus:bg-white">
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <button type="submit" class="bg-red-500 text-center p-2 rounded-lg w-full">Login</button>
+                        </div>
+                        <p>you don't have account? <a href="/register" class="text-blue-800">Register</a></p> 
+                    </form>
+            </div>
+        </div>
+    </div>
+
+{{/layout}}

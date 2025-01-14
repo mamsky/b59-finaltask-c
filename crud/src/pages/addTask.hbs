@@ -1,0 +1,92 @@
+{{#>layout user=user}}
+    <div class="bg-gray-900 min-h-screen h-auto flex justify-center py-4 text-white">
+        <div class="container lg:w-1/2 p-8">
+
+            <div class="flex justify-between">
+                <div class="flex items-center w-1/4 gap-2">
+                    <div>
+                        <a href="/" class="p-2 bg-stone-500 rounded-md"><i class="fa-solid fa-chevron-left"></i></a>
+                    </div>
+                    <div class="p-2 border rounded-md flex justify-between w-full">
+                        <div>
+                            <h1>{{data.name}}</h1>
+                            <p>{{done.length}}/{{data.collections.length}} Done</p>
+                        </div>
+                        <div>
+                            {{#if (equal done.length data.collections.length)}}
+                                <i class="fa-solid fa-check fa-3x"></i>
+                            {{else}}
+                                <i class="fa-regular fa-clock fa-3x"></i>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <form action="/deletetask/{{data.id}}?_method=delete" method="POST" class="p-2 rounded-md bg-red-500">
+                        <button onclick="alertDelete()">Delete</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="my-10">
+                <form action="/add-task/{{data.id}}" method="POST">
+                    <label for="website-admin" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Task</label>
+                    <div class="flex">
+                        <button type="submit" class="">
+                            <span class="inline-flex items-center px-3 py-2 text-xl text-white bg-violet-800 border border-e-0 border-violet-300 rounded-s-md">
+                                +
+                            </span>
+                        </button>
+                        <input type="text" name="name" id="website-admin" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan Task...">
+                    </div>
+                </form>
+            </div>
+                
+
+            <div class="my-2 p-2">
+                <h1>Task - 3</h1>
+                {{#each pending}}
+                    <div class="py-2 px-6 my-4 bg-white/30 flex justify-between items-center w-full rounded-md">
+                        <div>
+                            <a href="/editTask/{{this.id}}">
+                                <h1>{{this.name}}</h1>
+                            </a>
+                        </div>
+                        <div class="pt-4">
+                            <form action="/done/{{this.id}}?_method=patch&idc={{../data.id}}" method="POST">
+                                <button type="submit" onclick="alertChange()" class="p-4 border border-violet-700" >{{" "}}</button>
+                            </form>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div>
+                        All Done
+                    </div>
+                {{/each}}
+            </div>
+            <div class="my-2 p-2">
+                <h1>Complete - 2</h1>
+                {{#each done}}
+                    {{!-- {{data.collections}} --}}
+                    <div class="py-2 px-6 my-4 bg-white/30 flex justify-between items-center w-full rounded-md">
+                        <div>
+                            <a href="/editTask/{{this.id}}">
+                                <h1>{{this.name}}</h1>
+                            </a>
+                        </div>
+                        <div class="pt-4">
+                            <form action="/pending/{{this.id}}?_method=patch&idc={{../data.id}}" method="POST">
+                                <button type="submit" onclick="alertChangess()" class="p-2 border border-violet-700" ><i class="fa-solid fa-check"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div>
+                       No One Done
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+{{/layout}}

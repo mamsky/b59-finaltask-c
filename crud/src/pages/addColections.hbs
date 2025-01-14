@@ -1,0 +1,16 @@
+{{#>layout user=user}}
+    <div class="h-screen bg-gray-900">
+        <div class="h-full flex  justify-center items-center text-white">
+            <form action="/add-collection" method="POST" class="border w-full sm:w-1/2 lg:w-1/3 p-4 ggwp">
+                <h1 class="text-4xl text-center font-bold">Input Collections</h1>
+                <div class="w-full my-4">
+                    <label for="name" class="font-semibold text-xl">Name</label>
+                    <div class="w-full">
+                        <input type="name" name="name" id="name" placeholder="Masukkan Nama Collection..." class="w-full p-2 rounded-md bg-white/50 focus:bg-white text-black">
+                    </div>
+                </div>
+                <button class="p-2 bg-blue-800 w-full rounded-md">Add Task</button>
+            </form>
+        </div>
+    </div>
+{{/layout}}

@@ -1,0 +1,35 @@
+{{#>layout title = 'Register' user=user }}
+    <div class="w-full h-screen bg-gray-900 text-white">
+        <div class="h-4/5 flex justify-center items-center">
+            
+            <div class="container w-full md:w-1/2 lg:md-1/3 xl:w-1/5 border rounded-md bg-white/30 backdrop-blur-sm border">
+                    <form action="/authRegister" method="POST" class="p-2">
+                        <h1 class="text-4xl py-4 text-center font-bold">Register Form</h1>
+                        <div class="w-full my-4">
+                            <label for="username" class="font-semibold text-xl">Username</label>
+                            <div class="w-full">
+                                <input type="text" name="username" placeholder="username" class="w-full p-2 rounded-md bg-white/50 focus:bg-white text-black">
+                            </div>
+                        </div>
+                        <div class="w-full my-4">
+                            <label for="enail" class="font-semibold text-xl">Email</label>
+                            <div class="w-full">
+                                <input type="email" name="email" placeholder="email" class="w-full p-2 rounded-md bg-white/50 focus:bg-white text-black">
+                            </div>
+                        </div>
+                        <div class="w-full my-4">
+                            <label for="password" class="font-semibold text-xl">Password</label>
+                            <div class="w-full">
+                                <input type="password" name="password" id="password" placeholder="password" class="w-full p-2 rounded-md bg-white/50 focus:bg-white text-black">
+                            </div>
+                        </div>
+                        <div >
+                            <button type="submit" class="bg-red-500 text-center p-2 rounded-lg w-full">Login</button>
+                        </div>
+                        <p>you have account? <a href="/login" class="text-blue-800">Login</a></p>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+{{/layout}}

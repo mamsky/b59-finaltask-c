@@ -1,0 +1,36 @@
+{{#>layout title = 'home' user=user}}
+    <div class="w-full h-full flex justify-center overflow-hidden bg-gray-900">
+        <div class="container w-2/3 p-2 py-24">
+            <div class="my-10">
+
+                <h1 class="font-bold text-white text-4xl">Collections</h1>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                    {{#each data}}
+                    <a href="/add-task/{{this.id}}" class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="p-2">
+                            <img src="/assets/image/invoice.svg" alt="schedule" class="w-1/4" >
+                        </div>
+                      <div class="flex justify-between text-white">
+                        <div>
+                            <h1>{{this.name}}</h1>
+                            <p>
+                                {{formatDone this.collections}} Done
+                             </p>
+                        </div>
+                        <div  class="w-1/5" id="iconss">
+                            
+                            <img src="{{formatImage this.collections}}" alt="">
+                        </div>
+                        </div>
+                    </a>
+                    {{/each}}
+                    {{!-- add --}}
+                    <a href="/add-collection" class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex justify-center">
+                        <img src="/assets/image/add.png" alt="" class="w-1/2">
+                    </a>
+                    {{!-- end add --}}
+            </div>
+        </div>
+    </div>
+{{/layout}}
